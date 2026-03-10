@@ -4,7 +4,7 @@ title Degreed Automatizace
 
 @cls
 @echo ================================================================
-@echo            DEGREED AUTOMATIZACE
+@echo                 DEGREED AUTOMATIZACE
 @echo ================================================================
 @echo.
 
