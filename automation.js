@@ -19,11 +19,8 @@ window.addEventListener('message', (event) => {
             countdownWrap.style.display = 'inline';
             countdownTime.textContent = time;
             
-            // Dynamický název okna - pouze pokud okno není minimalizované (schované)
-            // Některé systémy mohou na změnu titulu reagovat obnovením okna.
-            if (document.visibilityState !== 'hidden') {
-                document.title = `(${time}) Degreed Automatizace`;
-            }
+            // Dynamický název okna pro lepší přehled v tabech
+            document.title = `(${time}) Degreed Automatizace`;
         }
 
         // Parent focus fix: Pokud okno nemá focus, zkusíme ho vyvolat
