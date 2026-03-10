@@ -1,4 +1,4 @@
-let links = [];
+﻿let links = [];
 let currentIndex = 0;
 let isRunning = false;
 let currentWindow = null;
@@ -14,18 +14,18 @@ window.addEventListener('message', (event) => {
         const time = event.data.formattedTime;
         const countdownWrap = document.getElementById('liveCountdownWrap');
         const countdownTime = document.getElementById('liveCountdownTime');
-        
+
         if (countdownWrap && countdownTime) {
             countdownWrap.style.display = 'inline';
             countdownTime.textContent = time;
-            
+
             // Dynamický název okna pro lepší přehled v tabech
             document.title = `(${time}) Degreed Automatizace`;
         }
 
         // Parent focus fix: Pokud okno nemá focus, zkusíme ho vyvolat
         if (isRunning && !document.hasFocus()) {
-             
+
         }
     }
 });
@@ -64,13 +64,13 @@ function normalizeLinks(text) {
 }
 
 async function loadLinksFromLinksTxt() {
-    const response = await fetch('links.txt', { cache: 'no-store' });
+    const response = await fetch('url.txt', { cache: 'no-store' });
     if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
     }
 
     const text = await response.text();
-    processLinks(text, 'links.txt');
+    processLinks(text, 'url.txt');
 }
 
 function loadLinksFromFilePicker() {
@@ -105,17 +105,17 @@ function loadLinksFromFilePicker() {
 
 // Načtení odkazů při startu stránky
 async function loadLinks() {
-    console.log('Načítám odkazy z links.txt...');
-    setFileInfo('Načítám odkazy z links.txt...');
+    console.log('Načítám odkazy z url.txt...');
+    setFileInfo('Načítám odkazy z url.txt...');
     showManualInput(false);
 
     try {
         await loadLinksFromLinksTxt();
     } catch (error) {
-        console.log('Nelze načíst links.txt, vyžaduji výběr souboru uživatelem');
-        setFileInfo('links.txt nelze načíst. Vyber soubor ručně.', 'warning');
+        console.log('Nelze načíst url.txt, vyžaduji výběr souboru uživatelem');
+        setFileInfo('Soubor url.txt nelze načíst. Vyber soubor ručně.', 'warning');
         showManualInput(false);
-        addLog('Soubor links.txt není dostupný. Vyber soubor ručně.', 'warning');
+        addLog('Soubor url.txt není dostupný. Vyber soubor ručně.', 'warning');
     }
 }
 
@@ -161,7 +161,7 @@ function updateUI() {
     // Použij nové UI funkce
     if (typeof updateUIStats === 'function') {
         updateUIStats(totalLinks);
-    } 
+    }
 
     if (links.length > 0) {
         addLog(`Načteno ${links.length} odkazů`, 'success');
@@ -187,17 +187,17 @@ function loadSettings() {
 function updateWaitTime(minutes) {
     maxWaitMinutes = parseInt(minutes) || 65;
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({ waitTime: maxWaitMinutes }));
-    
+
     const display = document.getElementById('currentWaitDisplay');
     if (display) display.textContent = maxWaitMinutes;
-    
+
     addLog(`Nastaveno čekání na ${maxWaitMinutes} minut`, 'info');
 }
 
 
 function startAutomation() {
     if (links.length === 0) {
-        alert('Nejsou načteny žádné odkazy. Zkontroluj soubor links.txt nebo vyber soubor ručně.');
+        alert('Nejsou načteny žádné odkazy. Zkontroluj soubor url.txt nebo vyber soubor ručně.');
         return;
     }
 
@@ -248,10 +248,10 @@ function stopAutomation(needConfirm = true) {
 
     document.getElementById('startBtn').disabled = false;
     document.getElementById('stopBtn').disabled = true;
-    
+
     document.getElementById('currentStepInfo').innerHTML = '<i class="fas fa-tasks"></i> Automatizace zastavena';
     document.getElementById('currentLink').innerHTML = '<i class="fas fa-link"></i> ---';
-    
+
     addLog('Automatizace zastavena', 'warning');
 }
 

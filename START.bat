@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 title Degreed Automatizace
 
 cls
@@ -7,20 +7,20 @@ echo            DEGREED AUTOMATIZACE - PORTABLE
 echo ================================================================
 echo.
 
-REM Kontrola existuje links.txt
-if exist "links.txt" goto :links_ok
-echo Nelezen soubor links.txt!
+REM Kontrola existuje url.txt
+if exist "url.txt" goto :links_ok
+echo Nelezen soubor url.txt!
 echo.
-echo Vytvor soubor links.txt s odkazy na kurzy.
+echo Vytvor soubor url.txt s odkazy na kurzy.
 echo.
 pause
 exit /b
 
 :links_ok
 REM Kontrola odkazu
-powershell -Command "& {$content = Get-Content 'links.txt' -Raw; $links = $content -split ',' | Where-Object {$_ -match 'degreed.com'}; $count = $links.Count; if ($count -eq 0) { exit 1 } else { Write-Host 'Nalezeno kurzu:' $count }}"
+powershell -Command "& {$content = Get-Content 'url.txt' -Raw; $links = $content -split ',' | Where-Object {$_ -match 'degreed.com'}; $count = $links.Count; if ($count -eq 0) { exit 1 } else { Write-Host 'Nalezeno kurzu:' $count }}"
 if %errorlevel% neq 0 (
-    echo Nenalezeny zadne platne odkazy v links.txt!
+    echo Nenalezeny zadne platne odkazy v url.txt!
     pause
     exit /b
 )

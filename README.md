@@ -1,4 +1,4 @@
-# 🎓 Degreed Automation
+﻿# 🎓 Degreed Automation
 
 > [!IMPORTANT]
 > **UPOZORNĚNÍ:** Tento nástroj slouží výhradně pro EDUKATIVNÍ ÚČELY a k testování automatizačních procesů v prohlížeči. Neslouží k obcházení povinných školení ani k porušování vnitřních předpisů. Použití je na vlastní zodpovědnost.
@@ -19,7 +19,7 @@ Tento projekt poskytuje jednoduché rozhraní pro automatizované otevírání a
 
 ## 🚀 Rychlý start
 
-1.  **Vložte odkazy**: Otevřete soubor `links.txt` a vložte do něj odkazy na kurzy.
+1.  **Vložte odkazy**: Otevřete soubor `url.txt` a vložte do něj odkazy na kurzy.
 2.  **Spusťte `START.bat`**: Dvojklik na soubor. Skript sám připraví prohlížeč a otevře panel.
 3.  **Přihlášení**: Pokud nejste přihlášeni, přihlašte se svým firemním účtem (SSO).
 4.  **Start**: V ovládacím panelu klikněte na **"🚀 Spustit automatizaci"**.
@@ -45,7 +45,7 @@ Tento projekt poskytuje jednoduché rozhraní pro automatizované otevírání a
 
 | Problém | Možné řešení |
 | :--- | :--- |
-| **"Nenalezeny odkazy"** | Zkontrolujte, zda `links.txt` obsahuje platné URL adresy na degreed.com. |
+| **"Nenalezeny odkazy"** | Zkontrolujte, zda `url.txt` obsahuje platné URL adresy na degreed.com. |
 | **Kurzy se neotevírají** | Povolte vyskakovací okna (Pop-ups) v horní liště prohlížeče. |
 | **Chyba stahování** | Zkontrolujte internetové připojení. Skript stahuje cca 150 MB (Chromium). |
 

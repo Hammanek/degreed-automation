@@ -1,4 +1,4 @@
-// --- Začátek kódu pro vložení do konzole ---
+﻿// --- Začátek kódu pro vložení do konzole ---
 
 // Úložiště pro unikátní odkazy, které zůstane zachováno mezi voláními funkcí.
 let uniqueCollectedLinks = new Set();
@@ -46,7 +46,7 @@ function showCollectedLinks() {
   // Vypíšeme pole pro snadnou inspekci v konzoli
   console.log(linksArray);
 
-  console.log("\n--- Odkazy pro kopírování do links.txt (každý na řádek) ---");
+  console.log("\n--- Odkazy pro kopírování do url.txt (každý na řádek) ---");
   // Vypíšeme každý odkaz na samostatný řádek
   linksArray.forEach(link => {
     console.log(link);
