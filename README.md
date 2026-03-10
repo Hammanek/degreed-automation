@@ -1,4 +1,4 @@
-﻿# 🎓 Degreed Automation
+# 🎓 Degreed Automation
 
 > [!IMPORTANT]
 > **UPOZORNĚNÍ:** Tento nástroj slouží výhradně pro EDUKATIVNÍ ÚČELY a k testování automatizačních procesů v prohlížeči. Neslouží k obcházení povinných školení ani k porušování vnitřních předpisů. Použití je na vlastní zodpovědnost.
@@ -19,10 +19,10 @@ Tento projekt poskytuje jednoduché rozhraní pro automatizované otevírání a
 
 ## 🚀 Rychlý start
 
-1.  **Vložte odkazy**: Otevřete soubor `url.txt` a vložte do něj odkazy na kurzy.
-2.  **Spusťte `START.bat`**: Dvojklik na soubor. Skript sám připraví prohlížeč a otevře panel.
-3.  **Přihlášení**: Pokud nejste přihlášeni, přihlašte se svým firemním účtem (SSO).
-4.  **Start**: V ovládacím panelu klikněte na **"🚀 Spustit automatizaci"**.
+1.  **Vložte odkazy**: Otevřete soubor `url.txt` a vložte do něj odkazy na kurzy (jeden odkaz na řádek).
+2.  **Spusťte `START.bat`**: Dvojklikem spusťte aplikaci. Otevře se okno prohlížeče s ovládacím panelem.
+3.  **Přihlášení (DŮLEŽITÉ)**: Než spustíte běh, otevřete si v tomto prohlížeči **novou záložku**, jděte na `eu.degreed.com` a přihlaste se (SSO). Poté záložku zavřete.
+4.  **Start**: Vraťte se do ovládacího panelu a klikněte na **"🚀 Spustit automatizaci"**.
 
 ---
 
