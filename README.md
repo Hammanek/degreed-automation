@@ -1,4 +1,4 @@
-# 🎓 Degreed Automatizace V2
+# 🎓 Degreed Automation
 
 > [!IMPORTANT]
 > **UPOZORNĚNÍ:** Tento nástroj slouží výhradně pro EDUKATIVNÍ ÚČELY a k testování automatizačních procesů v prohlížeči. Neslouží k obcházení povinných školení ani k porušování vnitřních předpisů. Použití je na vlastní zodpovědnost.
