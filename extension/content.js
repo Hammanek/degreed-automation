@@ -9,6 +9,7 @@
         hostname.includes('youtube.com') ||
         hostname.includes('youtu.be') ||
         hostname.includes('lms.skoda.vwgroup.com') ||
+        hostname.includes('digiskills.cz') ||
         hostname.includes('consent.youtube.com')) {
         console.log("🔒 Detekováno přihlašovací okno nebo LMS, zavírám okamžitě...");
         window.close();

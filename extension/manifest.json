@@ -5,7 +5,9 @@
   "description": "Bundled automation for Degreed.eu and Auto Close for SSO.",
   "permissions": ["scripting", "tabs", "webRequest"],
   "host_permissions": [
-    "https://lms.skoda.vwgroup.com/*"
+    "https://lms.skoda.vwgroup.com/*",
+    "https://www.digiskills.cz/*",
+    "https://digiskills.cz/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -21,7 +23,9 @@
         "https://www.youtube.com/*",
         "https://youtube.com/*",
         "https://youtu.be/*",
-        "https://lms.skoda.vwgroup.com/*"
+        "https://lms.skoda.vwgroup.com/*",
+        "https://www.digiskills.cz/*",
+        "https://digiskills.cz/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"

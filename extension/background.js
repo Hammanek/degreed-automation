@@ -1,15 +1,15 @@
-// Sledování otevřených tabů a automatické zavírání lms.skoda.vwgroup.com
+// Sledování otevřených tabů a automatické zavírání lms.skoda.vwgroup.com a digiskills.cz
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.url && changeInfo.url.includes('lms.skoda.vwgroup.com')) {
-        console.log('🚫 Blokuji lms.skoda.vwgroup.com, zavírám tab:', tabId);
+    if (changeInfo.url && (changeInfo.url.includes('lms.skoda.vwgroup.com') || changeInfo.url.includes('digiskills.cz'))) {
+        console.log('🚫 Blokuji nežádoucí URL, zavírám tab:', tabId);
         chrome.tabs.remove(tabId);
     }
 });
 
 // Zachytávání nově vytvořených tabů
 chrome.tabs.onCreated.addListener((tab) => {
-    if (tab.url && tab.url.includes('lms.skoda.vwgroup.com')) {
-        console.log('🚫 Blokuji nový tab s lms.skoda.vwgroup.com:', tab.id);
+    if (tab.url && (tab.url.includes('lms.skoda.vwgroup.com') || tab.url.includes('digiskills.cz'))) {
+        console.log('🚫 Blokuji nový tab s nežádoucí URL:', tab.id);
         chrome.tabs.remove(tab.id);
     }
     
@@ -17,8 +17,8 @@ chrome.tabs.onCreated.addListener((tab) => {
     setTimeout(() => {
         chrome.tabs.get(tab.id, (updatedTab) => {
             if (chrome.runtime.lastError) return;
-            if (updatedTab.url && updatedTab.url.includes('lms.skoda.vwgroup.com')) {
-                console.log('🚫 Blokuji tab s lms.skoda.vwgroup.com (delayed check):', tab.id);
+            if (updatedTab.url && (updatedTab.url.includes('lms.skoda.vwgroup.com') || updatedTab.url.includes('digiskills.cz'))) {
+                console.log('🚫 Blokuji tab s nežádoucí URL (delayed check):', tab.id);
                 chrome.tabs.remove(tab.id);
             }
         });
