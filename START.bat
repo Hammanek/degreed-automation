@@ -8,6 +8,11 @@ title Degreed Automatizace
 @echo =====================================================
 @echo.
 
+@REM Kontrola aktualizací z GitHubu
+@echo Kontroluji aktualizace...
+@powershell -Command "& { try { $latest = (Invoke-RestMethod -Uri 'https://api.github.com/repos/Hammanek/Degreed-Automation/commits/main').sha.Substring(0,7); $current = ''; if (Test-Path '.git/refs/heads/main') { $current = (Get-Content '.git/refs/heads/main').Substring(0,7) }; if ($current -ne $latest -and $current -ne '') { Write-Host 'Dostupna aktualizace! Stahuji...'; $zip = 'https://github.com/Hammanek/Degreed-Automation/archive/refs/heads/main.zip'; Invoke-WebRequest -Uri $zip -OutFile 'update.zip'; Expand-Archive -Path 'update.zip' -DestinationPath 'update_temp' -Force; Get-ChildItem 'update_temp/Degreed-Automation-main' | ForEach-Object { Copy-Item $_.FullName -Destination '.' -Recurse -Force -Exclude @('browser_profile','url.txt','chromium','.git') }; Remove-Item 'update.zip','update_temp' -Recurse -Force; Write-Host 'Aktualizace dokoncena!'; Start-Sleep -Seconds 2 } elseif ($current -eq '') { Write-Host 'Prvni spusteni - nastavuji Git tracking...'; New-Item -ItemType Directory -Path '.git/refs/heads' -Force | Out-Null; Set-Content -Path '.git/refs/heads/main' -Value $latest } else { Write-Host 'Aplikace je aktualni.' } } catch { Write-Host 'Kontrola aktualizaci selhala, pokracuji...' } }"
+@echo.
+
 @echo Kontrola prohlizece...
 @echo.
 
